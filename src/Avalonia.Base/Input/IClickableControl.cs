@@ -8,7 +8,7 @@ namespace Avalonia.Input
     /// </summary>
     internal interface IClickableControl
     {
-        event EventHandler<RoutedEventArgs> Click;
+        event EventHandler<ClickEventArgs> Click;
         void RaiseClick();
         /// <summary>
         /// Gets a value indicating whether this control and all its parents are enabled.

@@ -8,6 +8,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Platform;
 using Avalonia.Markup.Xaml;
 using Avalonia;
+using Avalonia.Input;
 
 namespace ControlCatalog.Pages
 {
@@ -23,13 +24,13 @@ namespace ControlCatalog.Pages
             AvaloniaXamlLoader.Load(this);
         }
 
-        public async void ShowPopupDelay(object sender, RoutedEventArgs args)
+        public async void ShowPopupDelay(object sender, ClickEventArgs args)
         {
             await Task.Delay(3000);
             ShowPopup(sender, args);
         }
 
-        public void ShowPopup(object sender, RoutedEventArgs args)
+        public void ShowPopup(object sender, ClickEventArgs args)
         {
             new ContextMenu()
             {

@@ -74,8 +74,8 @@ namespace Avalonia.Controls
         /// <summary>
         /// Defines the <see cref="Click"/> event.
         /// </summary>
-        public static readonly RoutedEvent<RoutedEventArgs> ClickEvent =
-            RoutedEvent.Register<MenuItem, RoutedEventArgs>(
+        public static readonly RoutedEvent<ClickEventArgs> ClickEvent =
+            RoutedEvent.Register<MenuItem, ClickEventArgs>(
                 nameof(Click),
                 RoutingStrategies.Bubble);
 
@@ -168,7 +168,7 @@ namespace Avalonia.Controls
         /// <summary>
         /// Occurs when a <see cref="MenuItem"/> without a submenu is clicked.
         /// </summary>
-        public event EventHandler<RoutedEventArgs>? Click
+        public event EventHandler<ClickEventArgs>? Click
         {
             add { AddHandler(ClickEvent, value); }
             remove { RemoveHandler(ClickEvent, value); }

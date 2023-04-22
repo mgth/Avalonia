@@ -30,13 +30,13 @@ namespace ControlCatalog.Pages
             AvaloniaXamlLoader.Load(this);
         }
 
-        private async void CopyText(object? sender, RoutedEventArgs args)
+        private async void CopyText(object? sender, ClickEventArgs args)
         {
             if (TopLevel.GetTopLevel(this)?.Clipboard is { } clipboard && ClipboardContent is { } clipboardContent)
                 await clipboard.SetTextAsync(clipboardContent.Text ?? String.Empty);
         }
 
-        private async void PasteText(object? sender, RoutedEventArgs args)
+        private async void PasteText(object? sender, ClickEventArgs args)
         {
             if (TopLevel.GetTopLevel(this)?.Clipboard is { } clipboard)
             {
@@ -44,7 +44,7 @@ namespace ControlCatalog.Pages
             }
         }
 
-        private async void CopyTextDataObject(object? sender, RoutedEventArgs args)
+        private async void CopyTextDataObject(object? sender, ClickEventArgs args)
         {
             if (TopLevel.GetTopLevel(this)?.Clipboard is { } clipboard)
             {
@@ -54,7 +54,7 @@ namespace ControlCatalog.Pages
             }
         }
 
-        private async void PasteTextDataObject(object? sender, RoutedEventArgs args)
+        private async void PasteTextDataObject(object? sender, ClickEventArgs args)
         {
             if (TopLevel.GetTopLevel(this)?.Clipboard is { } clipboard)
             {
@@ -62,7 +62,7 @@ namespace ControlCatalog.Pages
             }
         }
 
-        private async void CopyFilesDataObject(object? sender, RoutedEventArgs args)
+        private async void CopyFilesDataObject(object? sender, ClickEventArgs args)
         {
             if (TopLevel.GetTopLevel(this)?.Clipboard is { } clipboard)
             {
@@ -108,7 +108,7 @@ namespace ControlCatalog.Pages
             }
         }
 
-        private async void PasteFilesDataObject(object? sender, RoutedEventArgs args)
+        private async void PasteFilesDataObject(object? sender, ClickEventArgs args)
         {
             if (TopLevel.GetTopLevel(this)?.Clipboard is { } clipboard)
             {
@@ -118,7 +118,7 @@ namespace ControlCatalog.Pages
             }
         }
 
-        private async void GetFormats(object sender, RoutedEventArgs args)
+        private async void GetFormats(object sender, ClickEventArgs args)
         {
             if (TopLevel.GetTopLevel(this)?.Clipboard is { } clipboard)
             {
@@ -127,7 +127,7 @@ namespace ControlCatalog.Pages
             }
         }
 
-        private async void Clear(object sender, RoutedEventArgs args)
+        private async void Clear(object sender, ClickEventArgs args)
         {
             if (TopLevel.GetTopLevel(this)?.Clipboard is { } clipboard)
             {

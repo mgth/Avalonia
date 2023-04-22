@@ -2,6 +2,7 @@ using System;
 using Avalonia.Automation.Peers;
 using Avalonia.Controls.Metadata;
 using Avalonia.Data;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 
 namespace Avalonia.Controls.Primitives
@@ -126,10 +127,10 @@ namespace Avalonia.Controls.Primitives
             set => SetValue(IsThreeStateProperty, value);
         }
 
-        protected override void OnClick()
+        protected override void OnClick(KeyModifiers keyModifiers)
         {
             Toggle();
-            base.OnClick();
+            base.OnClick(keyModifiers);
         }
 
         /// <summary>

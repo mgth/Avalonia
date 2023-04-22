@@ -185,7 +185,7 @@ namespace Avalonia.Controls.Primitives
                 EventHandler<PointerPressedEventArgs> cellMouseLeftButtonDown = Cell_MouseLeftButtonDown;
                 EventHandler<PointerReleasedEventArgs> cellMouseLeftButtonUp = Cell_MouseLeftButtonUp;
                 EventHandler<PointerEventArgs> cellMouseEntered = Cell_MouseEntered;
-                EventHandler<RoutedEventArgs> cellClick = Cell_Click;
+                EventHandler<ClickEventArgs> cellClick = Cell_Click;
 
                 for (int i = 1; i < Calendar.RowsPerMonth; i++)
                 {
@@ -1066,7 +1066,7 @@ namespace Avalonia.Controls.Primitives
                 }
             }
         }
-        private void Cell_Click(object? sender, RoutedEventArgs e)
+        private void Cell_Click(object? sender, ClickEventArgs e)
         {
             if (Owner != null)
             {

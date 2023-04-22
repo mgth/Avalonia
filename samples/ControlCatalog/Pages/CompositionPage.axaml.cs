@@ -5,6 +5,7 @@ using System.Threading;
 using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
@@ -284,17 +285,17 @@ public partial class CompositionPage : UserControl
         }
     }
     
-    private void ButtonThreadSleep(object? sender, RoutedEventArgs e)
+    private void ButtonThreadSleep(object? sender, ClickEventArgs e)
     {
         Thread.Sleep(10000);
     }
 
-    private void ButtonStartCustomVisual(object? sender, RoutedEventArgs e)
+    private void ButtonStartCustomVisual(object? sender, ClickEventArgs e)
     {
         _customVisual?.SendHandlerMessage(CustomVisualHandler.StartMessage);
     }
 
-    private void ButtonStopCustomVisual(object? sender, RoutedEventArgs e)
+    private void ButtonStopCustomVisual(object? sender, ClickEventArgs e)
     {
         _customVisual?.SendHandlerMessage(CustomVisualHandler.StopMessage);
     }

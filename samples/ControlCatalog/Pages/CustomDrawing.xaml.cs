@@ -1,5 +1,6 @@
 using System;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 
@@ -37,27 +38,27 @@ namespace ControlCatalog.Pages
             }
         }
 
-        private void RotateMinus (object? sender, RoutedEventArgs e)
+        private void RotateMinus (object? sender, ClickEventArgs e)
         {
             if (_customControl is null) return;
             _customControl.Rotation -= Math.PI / 20.0d;
         }
 
-        private void RotatePlus(object? sender, RoutedEventArgs e)
+        private void RotatePlus(object? sender, ClickEventArgs e)
         {
             if (_customControl is null)
                 return;
             _customControl.Rotation += Math.PI / 20.0d;
         }
 
-        private void ZoomIn(object? sender, RoutedEventArgs e)
+        private void ZoomIn(object? sender, ClickEventArgs e)
         {
             if (_customControl is null)
                 return;
             _customControl.Scale *= 1.2d;
         }
 
-        private void ZoomOut(object? sender, RoutedEventArgs e)
+        private void ZoomOut(object? sender, ClickEventArgs e)
         {
             if (_customControl is null)
                 return;

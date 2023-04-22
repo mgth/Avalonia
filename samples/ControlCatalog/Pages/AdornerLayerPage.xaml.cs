@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 
@@ -19,7 +20,7 @@ namespace ControlCatalog.Pages
             AvaloniaXamlLoader.Load(this);
         }
 
-        private void RemoveAdorner_OnClick(object? sender, RoutedEventArgs e)
+        private void RemoveAdorner_OnClick(object? sender, ClickEventArgs e)
         {
             var adornerButton = this.FindControl<Button>("AdornerButton");
             if (adornerButton is { })
@@ -33,7 +34,7 @@ namespace ControlCatalog.Pages
             }
         }
 
-        private void AddAdorner_OnClick(object? sender, RoutedEventArgs e)
+        private void AddAdorner_OnClick(object? sender, ClickEventArgs e)
         {
             var adornerButton = this.FindControl<Button>("AdornerButton");
             if (adornerButton is { })
@@ -44,5 +45,6 @@ namespace ControlCatalog.Pages
                 }
             }
         }
+
     }
 }
