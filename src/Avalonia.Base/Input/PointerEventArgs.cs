@@ -7,12 +7,6 @@ using Avalonia.VisualTree;
 
 namespace Avalonia.Input
 {
-    public interface IKeyModifiersEventArgs
-    {
-        KeyModifiers KeyModifiers { get; }
-    }
-
-
     public class PointerEventArgs : RoutedEventArgs, IKeyModifiersEventArgs
     {
         private readonly Visual? _rootVisual;
