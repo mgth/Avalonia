@@ -2,7 +2,7 @@
 
 namespace Avalonia.Input.Raw
 {
-    public class RawDragEvent : RawInputEventArgs
+    public class RawDragEvent : RawInputEventArgs, IKeyModifiersRoutedEventArgs
     {
         public Point Location { get; set; }
         public IDataObject Data { get; }

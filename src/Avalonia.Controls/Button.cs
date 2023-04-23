@@ -275,7 +275,7 @@ namespace Avalonia.Controls
             }
         }
 
-        protected virtual void OnAccessKey(RoutedEventArgs e) => OnClick();
+        protected virtual void OnAccessKey(RoutedEventArgs e) => OnClick(e);
 
         /// <inheritdoc/>
         protected override void OnKeyDown(KeyEventArgs e)
@@ -283,7 +283,7 @@ namespace Avalonia.Controls
             switch (e.Key)
             {
                 case Key.Enter:
-                    OnClick();
+                    OnClick(e);
                     e.Handled = true;
                     break;
 
@@ -291,7 +291,7 @@ namespace Avalonia.Controls
                     {
                         if (ClickMode == ClickMode.Press)
                         {
-                            OnClick();
+                            OnClick(e);
                         }
 
                         IsPressed = true;
@@ -315,7 +315,7 @@ namespace Avalonia.Controls
             {
                 if (ClickMode == ClickMode.Release)
                 {
-                    OnClick();
+                    OnClick(e);
                 }
                 IsPressed = false;
                 e.Handled = true;
@@ -329,6 +329,11 @@ namespace Avalonia.Controls
         /// </summary>
         protected virtual void OnClick()
         {
+            OnClick(null);
+        }
+
+        protected virtual void OnClick(RoutedEventArgs? inner)
+        {
             if (IsEffectivelyEnabled)
             {
                 if (_isFlyoutOpen)
@@ -340,7 +345,7 @@ namespace Avalonia.Controls
                     OpenFlyout();
                 }
 
-                var e = new RoutedEventArgs(ClickEvent);
+                var e = new RoutedEventArgs(ClickEvent,inner);
                 RaiseEvent(e);
 
                 if (!e.Handled && Command?.CanExecute(CommandParameter) == true)
@@ -395,7 +400,7 @@ namespace Avalonia.Controls
 
                 if (ClickMode == ClickMode.Press)
                 {
-                    OnClick();
+                    OnClick(e);
                 }
             }
         }
@@ -413,7 +418,7 @@ namespace Avalonia.Controls
                 if (ClickMode == ClickMode.Release &&
                     this.GetVisualsAt(e.GetPosition(this)).Any(c => this == c || this.IsVisualAncestorOf(c)))
                 {
-                    OnClick();
+                    OnClick(e);
                 }
             }
         }
@@ -637,7 +642,7 @@ namespace Avalonia.Controls
         {
             if (e.Key == Key.Enter && IsVisible && IsEnabled)
             {
-                OnClick();
+                OnClick(e);
                 e.Handled = true;
             }
         }
@@ -651,7 +656,7 @@ namespace Avalonia.Controls
         {
             if (e.Key == Key.Escape && IsVisible && IsEnabled)
             {
-                OnClick();
+                OnClick(e);
                 e.Handled = true;
             }
         }

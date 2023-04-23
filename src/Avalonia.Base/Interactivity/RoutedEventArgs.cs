@@ -35,6 +35,30 @@ namespace Avalonia.Interactivity
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="RoutedEventArgs"/> class.
+        /// </summary>
+        /// <param name="routedEvent">The routed event associated with these event args.</param>
+        /// <param name="inner">The previous event args that raised the routed event</param>
+        public RoutedEventArgs(RoutedEvent? routedEvent, RoutedEventArgs? inner)
+        {
+            RoutedEvent = routedEvent;
+            Inner = inner;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RoutedEventArgs"/> class.
+        /// </summary>
+        /// <param name="routedEvent">The routed event associated with these event args.</param>
+        /// <param name="source">The source object that raised the routed event.</param>
+        /// <param name="inner">The previous event args that raised the routed event</param>
+        public RoutedEventArgs(RoutedEvent? routedEvent, object? source, RoutedEventArgs inner)
+        {
+            RoutedEvent = routedEvent;
+            Source = source;
+            Inner = inner;
+        }
+
+        /// <summary>
         /// Gets or sets a value indicating whether the routed event has already been handled.
         /// </summary>
         /// <remarks>
@@ -56,5 +80,10 @@ namespace Avalonia.Interactivity
         /// Gets or sets the source object that raised the routed event.
         /// </summary>
         public object? Source { get; set; }
+
+        /// <summary>
+        /// Gets or sets the previous event args that raised the routed event.
+        /// </summary>
+        public RoutedEventArgs? Inner { get; set; }
     }
 }
